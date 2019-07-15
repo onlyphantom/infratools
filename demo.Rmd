@@ -1,0 +1,60 @@
+---
+title: "demo2"
+author: "Samuel Chan"
+date: "7/13/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Consultation Project
+```{r}
+library(verisr2)
+data(vcdb)
+```
+
+```{r}
+dim(vcdb)
+nrow(vcdb)
+ncol(vcdb)
+```
+
+```{r}
+class(vcdb)
+```
+
+```{r}
+getenum_stri(vcdb, "action.error.vector")[1:5]
+```
+
+```{r}
+enum2grid(vcdb, c("asset.variety", "actor.external.variety"))
+```
+
+```{r}
+tidy_vcdb <- collapse_vcdb(vcdb)
+idvictim <- subset(tidy_vcdb, victim.country=="ID")
+head(idvictim$notes)
+```
+
+
+```{r}
+id_small <- involving_country(vcdb, "ID", notes_only=TRUE)
+dim(id_small)
+```
+
+```{r}
+id_small$summary
+```
+
+
+```{r}
+model1 <- lm(hp~mpg, data=mtcars)
+predict(model1, data.frame(mpg=20))
+```
+
+
+
+
