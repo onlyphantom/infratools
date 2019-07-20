@@ -9,8 +9,20 @@
 - Instructors: 
     - [Samuel Chan](https://id.linkedin.com/in/chansamuel)
 
-### Agenda
+#### Singapore Session
+- Title: Kickstart your data science career
+- Date: Thursday, **July 18th**, 2019
+- Time: 1800 - 2200
+- Partners: Ngee Ann Polytechnic, WeWork Singapore
+- Venue: WeWork Funan, 109 North Bridge Rd, Singapore 179097
+- Instructors:
+    - Samuel Chan
+- Teaching Staff:
+    - Andy Oh, Ngee Ann Polytechnic
+    - Ricky Chua, Ngee Ann Polytechnic
+    - Charis Tang, Ngee Ann Polytechnic
 
+### Agenda
 In this Data Science kickstart session we'll dive head first into the the tools and infrastructure, applied processes, learning management and accompanying technology for analytical teams. Specifically
 
 - **Chapter 1**: A review on the current landscape of Data Science
@@ -18,7 +30,7 @@ In this Data Science kickstart session we'll dive head first into the the tools 
 - **Chapter 3**: Code-to-Features (Productionizing Data Science)
 
 
-## Syllabus
+## Syllabus (Indonesia)
 
 - A review on the current landscape of Data Science
     - The whos, whats, and hows

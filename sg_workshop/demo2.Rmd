@@ -1,0 +1,195 @@
+---
+title: "demo2"
+author: "Samuel Chan"
+date: "7/18/2019"
+output:
+  html_document: default
+  word_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+library(ggthemes)
+```
+
+## R Markdown
+```{r}
+loan <- read.csv("~/Desktop/loan.csv")
+nrow(loan)
+ncol(loan)
+dim(loan)
+```
+
+```{r}
+table(loan$credit_history)
+```
+
+
+
+
+```{r}
+summary(loan)
+```
+
+```{r}
+retail <- read.csv("workshop.csv")
+head(retail)
+```
+
+```{r}
+retail$Day.Index <- as.Date(retail$Day.Index)
+retail$year <- as.factor(retail$year)
+retail$DOW <- weekdays(retail$Day.Index)
+retail$Month <- months(retail$Day.Index)
+retail$isWeekend <- ifelse(retail$DOW == "Saturday" | retail$DOW == "Sunday", "Weekend", "Weekday")
+str(retail)
+```
+
+```{r}
+retail$DOW <- as.factor(retail$DOW)
+retail$Month <- as.factor(retail$Month)
+retail$isWeekend <- as.factor(retail$isWeekend)
+head(retail)
+```
+
+```{r}
+plot(x=retail$Day.Index, 
+     y=retail$Sessions,
+     type="l")
+```
+
+
+```{r}
+plot(x=retail$Day.Index, 
+     y=retail$Sessions,
+     cex=0.7, pch=19)
+```
+
+```{r}
+plot(x=retail$DOW, 
+     y=retail$Sessions, col="hotpink4")
+```
+
+
+
+```{r}
+ggplot(data=retail, aes(x=DOW, y=Sessions))+
+  geom_boxplot() +
+  geom_jitter(aes(col=DOW)) +
+  labs(title="MiStore Traffic", 
+       subtitle="Gathered from CRM, 2019", 
+       caption="Created by Julia") +
+  theme_economist_white()
+```
+
+Our Analyst Team has the following discovery:
+- Sales is better in Q3  
+- The new retail outlet consistent outperform other branches  
+- Campaign was most successful in November 2018
+
+
+
+
+```{r}
+ggplot(data=retail, aes(x=DOW, y=Sessions))+
+  geom_boxplot() +
+  geom_jitter(aes(col=DOW)) +
+  labs(title="MiStore Traffic", 
+       subtitle="Gathered from CRM, 2019", 
+       caption="Created by Julia") +
+  coord_flip() +
+  facet_wrap(~Month)
+```
+
+```{r}
+head(mtcars)
+```
+
+```{r}
+carmodel <- lm(formula=hp~mpg, 
+             data=mtcars)
+coef(carmodel)
+```
+
+```{r}
+newcar <- data.frame(mpg=18)
+print(newcar)
+```
+
+```{r}
+predict(carmodel, newcar)
+```
+
+
+```{r}
+plot(mtcars$mpg, mtcars$hp, pch=19)
+abline(coef(carmodel)[1], coef(carmodel)[2], lty="dashed", col="blue")
+```
+
+```{r}
+salary <- c(2500, 3500, 3000, 10000, 2000)
+print(salary[-5])
+```
+
+```{r}
+salary[c(1,3,4)]
+```
+
+```{r}
+library(verisr2)
+data(vcdb)
+```
+
+```{r}
+dim(vcdb)
+```
+
+```{r}
+getenum_stri(vcdb, "action.error.vector")[1:5]
+```
+
+```{r}
+enum2grid(vcdb, c("asset.variety", "actor.external.variety"))
+```
+
+```{r}
+tidy_vcdb <- collapse_vcdb(vcdb)
+```
+
+```{r}
+id_small <- involving_country(vcdb, "ID", notes_only=TRUE)
+id_small
+```
+
+- read.csv()
+- str(), summary()
+- dim()
+- nrow(), ncol()
+- plot(x=Month, y=Profit)
+- plot(x, y, main="Profit Analysis", col="hotpink4", pch=1, cex=1)
+- abline()
+- external libraries such as ggplot
+- installing and loading libraries
+- comparison: R and Python
+- machine learning
+- lm(OilPrices ~ GasPrices, data=SGX)
+- predict(model1, newdata)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
